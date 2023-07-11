@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Udemy.Advertisement.Common
+namespace Udemy.AdvertisementApp.Common
 {
     public interface IResponse<T> : IResponse
     {
