@@ -9,6 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Udemy.AdvertisementApp.Enti
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Udemy.AdvertisementApp.DataAccess", "Udemy.AdvertisementApp.DataAccess\Udemy.AdvertisementApp.DataAccess.csproj", "{EB7A6D99-5B98-4AE1-A104-F0CD4214C35B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Udemy.AdvertisementApp.Business", "Udemy.AdvertisementApp.Business\Udemy.AdvertisementApp.Business.csproj", "{0C024201-4473-481E-B2D7-114BC78A78BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Udemy.AdvertisementApp.UI", "Udemy.AdvertisementApp.UI\Udemy.AdvertisementApp.UI.csproj", "{B6C45C15-AD49-4C1E-B3AB-8FC40580E9B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Udemy.AdvertisementApp.Dtos", "Udemy.AdvertisementApp.Dtos\Udemy.AdvertisementApp.Dtos.csproj", "{D3E71B58-0864-42EE-A855-2C1C53225180}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +33,18 @@ Global
 		{EB7A6D99-5B98-4AE1-A104-F0CD4214C35B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB7A6D99-5B98-4AE1-A104-F0CD4214C35B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB7A6D99-5B98-4AE1-A104-F0CD4214C35B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C024201-4473-481E-B2D7-114BC78A78BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C024201-4473-481E-B2D7-114BC78A78BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C024201-4473-481E-B2D7-114BC78A78BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C024201-4473-481E-B2D7-114BC78A78BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6C45C15-AD49-4C1E-B3AB-8FC40580E9B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6C45C15-AD49-4C1E-B3AB-8FC40580E9B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6C45C15-AD49-4C1E-B3AB-8FC40580E9B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6C45C15-AD49-4C1E-B3AB-8FC40580E9B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3E71B58-0864-42EE-A855-2C1C53225180}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3E71B58-0864-42EE-A855-2C1C53225180}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3E71B58-0864-42EE-A855-2C1C53225180}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3E71B58-0864-42EE-A855-2C1C53225180}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

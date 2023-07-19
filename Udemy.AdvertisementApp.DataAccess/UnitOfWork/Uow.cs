@@ -10,7 +10,7 @@ using Udemy.AdvertisementApp.Entities;
 
 namespace Udemy.AdvertisementApp.DataAccess.UnitOfWork
 {
-    public class Uow
+    public class Uow : IUow
     {
         private readonly AdvertisementContext _context;
 
