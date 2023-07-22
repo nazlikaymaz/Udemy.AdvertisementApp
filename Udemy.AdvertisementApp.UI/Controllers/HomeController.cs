@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Udemy.AdvertisementApp.Business.Interfaces;
+using Udemy.AdvertisementApp.UI.Extensions;
 
 namespace Udemy.AdvertisementApp.UI.Controllers
 {
@@ -19,6 +20,11 @@ namespace Udemy.AdvertisementApp.UI.Controllers
         public async Task<IActionResult> Index()
         {
             var response = await _providedServiceService.GetAllAsync();
+            return this.ResponseView(response);
+        }
+
+        public IActionResult HumanResource()
+        {
             return View();
         }
     }

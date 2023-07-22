@@ -14,7 +14,7 @@ using Udemy.AdvertisementApp.Business.Services;
 using Udemy.AdvertisementApp.Business.ValidationRules;
 using Udemy.AdvertisementApp.DataAccess.Contexts;
 using Udemy.AdvertisementApp.DataAccess.UnitOfWork;
-using Udemy.AdvertisementApp.Dtos.ProvidedServiceDtos;
+using Udemy.AdvertisementApp.Dtos;
 
 namespace Udemy.AdvertisementApp.Business.DependencyResolvers.Microsoft
 {
