@@ -26,19 +26,23 @@ namespace Udemy.AdvertisementApp.UI
         {
             Configuration = configuration;
         }
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDependencies(Configuration);
             services.AddTransient<IValidator<UserCreateModel>, UserCreateModelValidator>();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-.AddCookie(opt =>
-{
-    opt.Cookie.Name = "UdemyCookie";
-    opt.Cookie.HttpOnly = true;
-    opt.Cookie.SameSite = Microsoft.AspNetCore.Http.SameSiteMode.Strict;
-    opt.Cookie.SecurePolicy = Microsoft.AspNetCore.Http.CookieSecurePolicy.SameAsRequest;
-    opt.ExpireTimeSpan = TimeSpan.FromDays(20);
-});
+    .AddCookie(opt => {
+        opt.Cookie.Name = "UdemyCookie";
+        opt.Cookie.HttpOnly = true;
+        opt.Cookie.SameSite = Microsoft.AspNetCore.Http.SameSiteMode.Strict;
+        opt.Cookie.SecurePolicy = Microsoft.AspNetCore.Http.CookieSecurePolicy.SameAsRequest;
+        opt.ExpireTimeSpan = TimeSpan.FromDays(20);
+        opt.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/SignIn");
+        opt.LogoutPath = new Microsoft.AspNetCore.Http.PathString("/Account/LogOut");
+        opt.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/Account/AccessDenied");
+    });
+
             services.AddControllersWithViews();
 
             var profiles = ProfileHelper.GetProfiles();

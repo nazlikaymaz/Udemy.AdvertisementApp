@@ -1,10 +1,11 @@
 ﻿using AutoMapper;
 using FluentValidation;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Udemy.AdvertisementApp.Business.Interfaces;
 using Udemy.AdvertisementApp.Common.Enums;
@@ -56,6 +57,50 @@ namespace Udemy.AdvertisementApp.UI.Controllers
             var response = await _genderService.GetAllAsync();
             model.Genders = new SelectList(response.Data, "ID", "Definition", model.GenderID);
             return View(model);
+        }
+
+        public IActionResult SignIn()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SignIn(AppUserLoginDto dto)
+        {
+            var result = await _appUserService.CheckUserAsync(dto);
+            if (result.ResponseType == Common.ResponseType.Success)
+            {
+                var roleResult = await _appUserService.GetRolesByUserIdAsync(result.Data.ID);
+                // ilgili kullanıcının rollerini çekmemiz.
+                var claims = new List<Claim>();
+
+                if (roleResult.ResponseType == Common.ResponseType.Success)
+                {
+                    foreach (var role in roleResult.Data)
+                    {
+                        claims.Add(new Claim(ClaimTypes.Role, role.Definition));
+                    }
+                }
+
+                claims.Add(new Claim(ClaimTypes.NameIdentifier, result.Data.ID.ToString()));
+
+                var claimsIdentity = new ClaimsIdentity(
+                    claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+                var authProperties = new AuthenticationProperties
+                {
+                    IsPersistent = dto.RememberMe,
+                };
+
+                await HttpContext.SignInAsync(
+                    CookieAuthenticationDefaults.AuthenticationScheme,
+                    new ClaimsPrincipal(claimsIdentity),
+                    authProperties);
+
+                return RedirectToAction("Index", "Home");
+            }
+            ModelState.AddModelError("Kullanıcı adı veya şifre hatalı", result.Message);
+            return View(dto);
         }
     }
 }
