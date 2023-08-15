@@ -102,5 +102,11 @@ namespace Udemy.AdvertisementApp.UI.Controllers
             ModelState.AddModelError("Kullanıcı adı veya şifre hatalı", result.Message);
             return View(dto);
         }
+
+        public async Task<IActionResult> LogOut()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
